@@ -24,10 +24,9 @@ not work for any other configuration names. Do not install this
 package for projects with configurations other than `Debug` and
 `Release`.
 
-Expat can be built either with narrow character support or wide
-character support, but not both. This package is built with the
-former and cannot parse XML documents mainatined in wchar_t
-buffers.
+Expat libraries in this package are built with narrow character
+support only and cannot parse XML documents maintained as wide
+character strings.
 
 See `StoneSteps.Expat.VS2022.Static.props` and
 `StoneSteps.Expat.VS2022.Static.targets`

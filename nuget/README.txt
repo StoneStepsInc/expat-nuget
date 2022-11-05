@@ -1,4 +1,4 @@
-This package contains a static Expat libraries and header files
+This package contains static Expat libraries and header files
 for the x64 platform and Debug/Release configurations built with
 Visual C++ 2022, against Debug/Release MT/DLL MSVC CRT.
 
@@ -15,7 +15,6 @@ not work for any other configuration names. Do not install this
 package for projects with configurations other than Debug and
 Release.
 
-Expat can be built either with narrow character support or wide
-character support, but not both. This package is built with the
-former and cannot parse XML documents mainatined in wchar_t
-buffers.
+Expat libraries in this package are built with narrow character
+support only and cannot parse XML documents maintained as wide
+character strings.
