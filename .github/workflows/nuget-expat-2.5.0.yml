@@ -8,7 +8,7 @@
 # to restart build numbers from `1`. This is necessary because GitHub
 # maintains build numbers per workflow file name.
 #
-name: Expat v2.5.0-1
+name: Expat v2.5.0-2
 
 #
 # When `publish-package` is set to `yes`, the workflow will build
@@ -48,7 +48,7 @@ on:
 #
 env:
   PKG_VER: 2.5.0
-  PKG_REV: 1
+  PKG_REV: 2
   BUILD_NUMBER: ${{ github.run_number }}
 
   #
@@ -118,7 +118,7 @@ jobs:
 
         mkdir ..\nuget\build\native\lib\x64\Debug
         copy /Y build\Debug\libexpatdMD.lib ..\nuget\build\native\lib\x64\Debug\libexpatMD.lib
-        copy /Y build\Debug\libexpatdMD.pdb ..\nuget\build\native\lib\x64\Debug\libexpatMD.pdb
+        copy /Y build\Debug\libexpatdMD.pdb ..\nuget\build\native\lib\x64\Debug\
 
         mkdir ..\nuget\build\native\lib\x64\Release
         copy /Y build\Release\libexpatMD.lib ..\nuget\build\native\lib\x64\Release\

@@ -61,10 +61,10 @@ mkdir ..\nuget\build\native\include
 copy build\expat_config.h ..\nuget\build\native\include\
 xcopy /Y /S lib\*.h ..\nuget\build\native\include\
 
-rem rename debug library so we don't have to use conditionals in msbuild property files
+rem rename debug library so we don't have to use conditionals in msbuild property files (PDB is referenced in the library)
 mkdir ..\nuget\build\native\lib\x64\Debug
 copy /Y build\Debug\libexpatdMD.lib ..\nuget\build\native\lib\x64\Debug\libexpatMD.lib
-copy /Y build\Debug\libexpatdMD.pdb ..\nuget\build\native\lib\x64\Debug\libexpatMD.pdb
+copy /Y build\Debug\libexpatdMD.pdb ..\nuget\build\native\lib\x64\Debug\
 
 rem unfortunately, no PDB for the release build, which \help in debugging
 mkdir ..\nuget\build\native\lib\x64\Release
