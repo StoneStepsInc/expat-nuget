@@ -91,7 +91,7 @@ jobs:
     - name: Generate build projects
       working-directory: ${{ env.EXPAT_FNAME }}
       run: |
-        call ${{ env.VCVARSALL }} x64
+        call "${{ env.VCVARSALL }}" x64
         cmake -S . -B build -A x64 \
             -DEXPAT_BUILD_TESTS=OFF \
             -DEXPAT_BUILD_TOOLS=OFF \
@@ -102,6 +102,7 @@ jobs:
     - name: Build Expat
       working-directory: ${{ env.EXPAT_FNAME }}
       run: |
+        call "${{ env.VCVARSALL }}" x64
         cmake --build build --config Debug
         cmake --build build --config Release
         
