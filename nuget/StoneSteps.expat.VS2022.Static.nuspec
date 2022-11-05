@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>StoneSteps.Expat.VS2022.Static</id>
+    <version>2.5.0</version>
+    <authors>Expat authors</authors>
+    <owners>Stone Steps (package)</owners>
+    <license type="file">licenses\COPYING</license>
+    <projectUrl>https://github.com/StoneStepsInc/expat-nuget</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Expat is a stream-oriented XML parser.</description>
+    <releaseNotes>
+Package Notes:
+
+  * Static libraries for Debug/Release configurations, x64 platform
+  * Built in Visual C++ 2022, against Debug/Release MT/DLL MSVC CRT
+  * Built with narrow character support only.
+
+See Expat release notes for details:
+
+https://github.com/libexpat/libexpat/releases/tag/R_2_5_0
+    </releaseNotes>
+    <copyright>Expat authors</copyright>
+    <tags>Expat,XML,parser,native,library</tags>
+  </metadata>
+  <files>
+   <file src="README.txt" target=""/>
+   <file src="licenses\COPYING" target="licenses\COPYING"/>
+   <file src="build\**\*" target="build"/>
+  </files>
+</package>
