@@ -92,11 +92,11 @@ jobs:
       working-directory: ${{ env.EXPAT_FNAME }}
       run: |
         call "${{ env.VCVARSALL }}" x64
-        cmake -S . -B build -A x64 \
-            -DEXPAT_BUILD_TESTS=OFF \
-            -DEXPAT_BUILD_TOOLS=OFF \
-            -DEXPAT_SHARED_LIBS=OFF \
-            -DEXPAT_ENABLE_INSTALL=OFF \
+        cmake -S . -B build -A x64 ^
+            -DEXPAT_BUILD_TESTS=OFF ^
+            -DEXPAT_BUILD_TOOLS=OFF ^
+            -DEXPAT_SHARED_LIBS=OFF ^
+            -DEXPAT_ENABLE_INSTALL=OFF ^
             -DEXPAT_BUILD_EXAMPLES=OFF
 
     - name: Build Expat
