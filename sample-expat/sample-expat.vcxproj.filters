@@ -3,7 +3,4 @@
   <ItemGroup>
     <ClCompile Include="sample-expat.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="$(LibExpatDir)lib\$(Platform)\$(Configuration)\$(LibExpatName).lib" />
-  </ItemGroup>
 </Project>
