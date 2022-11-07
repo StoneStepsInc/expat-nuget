@@ -175,7 +175,7 @@ int main(void)
 
       cp += len;
 
-      // parse the XML we collected so far (may or may not call our callbacks, depending on ho much is in the buffer)
+      // parse the XML we collected so far (may or may not call our callbacks, depending on how much is in the buffer)
       if(XML_ParseBuffer(parse_ctx.parser, static_cast<int>(len), done) == XML_STATUS_ERROR) {
          fprintf(stderr,
             "Parse error at line %" XML_FMT_INT_MOD "u:\n%s\n",
