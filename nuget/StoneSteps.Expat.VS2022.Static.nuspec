@@ -16,6 +16,7 @@ Package Notes:
   * Built in Visual C++ 2022, against Debug/Release MT/DLL MSVC CRT
   * Built with narrow character support only.
   * Static libraries in this package are not injected into static library projects
+  * Debug and Release libraries are included in build based on UseDebugLibraries
 
 See Expat release notes for details:
 
