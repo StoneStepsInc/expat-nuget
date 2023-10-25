@@ -18,7 +18,9 @@ set PATCH=c:\Program Files\Git\usr\bin\patch.exe
 set SEVENZIP_EXE=c:\Program Files\7-Zip\7z.exe
 set VCVARSALL=C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall
 
-curl --location --output %EXPAT_FNAME%.tar.gz https://github.com/libexpat/libexpat/releases/download/%EXPAT_RNAME%/%EXPAT_FNAME%.tar.gz
+if NOT EXIST %EXPAT_FNAME%.tar.gz (
+  curl --location --output %EXPAT_FNAME%.tar.gz https://github.com/libexpat/libexpat/releases/download/%EXPAT_RNAME%/%EXPAT_FNAME%.tar.gz
+)
 
 "%SEVENZIP_EXE%" h -scrcSHA256 %EXPAT_FNAME%.tar.gz | findstr /C:"SHA256 for data" | call devops\check-sha256 "%EXPAT_SHA256%"
 
