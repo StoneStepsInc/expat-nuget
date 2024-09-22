@@ -8,7 +8,7 @@
 # to restart build numbers from `1`. This is necessary because GitHub
 # maintains build numbers per workflow file name.
 #
-name: Expat v2.5.0-4
+name: Expat v2.6.3-1
 
 #
 # When `publish-package` is set to `yes`, the workflow will build
@@ -47,17 +47,17 @@ on:
 # adding or removing files, changing any text in README files, etc.
 #
 env:
-  PKG_VER: 2.5.0
-  PKG_REV: 4
+  PKG_VER: 2.6.3
+  PKG_REV: 1
   BUILD_NUMBER: ${{ github.run_number }}
 
   #
   # GitHub won't allow referencing `env` within this section, so we
   # need to spell out package version a couple more times.
   #
-  EXPAT_FNAME: expat-2.5.0
-  EXPAT_RNAME: R_2_5_0
-  EXPAT_SHA256: 6b902ab103843592be5e99504f846ec109c1abb692e85347587f237a4ffa1033
+  EXPAT_FNAME: expat-2.6.3
+  EXPAT_RNAME: R_2_6_3
+  EXPAT_SHA256: 17aa6cfc5c4c219c09287abfc10bc13f0c06f30bb654b28bfe6f567ca646eb79
 
   # for VS Community Edition, replace `Enterprise` with `Community` in the path
   VCVARSALL: 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall'
@@ -76,7 +76,7 @@ jobs:
     
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Download Expat
       run: curl --location --output ${{ env.EXPAT_FNAME }}.tar.gz https://github.com/libexpat/libexpat/releases/download/${{ env.EXPAT_RNAME }}/${{ env.EXPAT_FNAME }}.tar.gz
@@ -131,7 +131,7 @@ jobs:
 
     - name: Upload CI Nuget package
       if: ${{ github.event.inputs.publish-package != 'yes' }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Expat CI Nuget package
         path: StoneSteps.Expat.VS2022.Static.${{ env.PKG_VER }}.${{ env.PKG_REV }}-ci.${{ env.BUILD_NUMBER }}.nupkg

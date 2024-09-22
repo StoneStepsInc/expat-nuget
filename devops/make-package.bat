@@ -7,12 +7,12 @@ if "%~1" == "" (
   goto :EOF
 )
 
-set PKG_VER=2.5.0
+set PKG_VER=2.6.3
 set PKG_REV=%~1
 
 set EXPAT_FNAME=expat-%PKG_VER%
-set EXPAT_RNAME=R_2_5_0
-set EXPAT_SHA256=6b902ab103843592be5e99504f846ec109c1abb692e85347587f237a4ffa1033
+set EXPAT_RNAME=R_2_6_3
+set EXPAT_SHA256=17aa6cfc5c4c219c09287abfc10bc13f0c06f30bb654b28bfe6f567ca646eb79
 
 set PATCH=c:\Program Files\Git\usr\bin\patch.exe
 set SEVENZIP_EXE=c:\Program Files\7-Zip\7z.exe
