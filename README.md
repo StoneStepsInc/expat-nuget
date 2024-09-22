@@ -1,6 +1,6 @@
 ## Expat Nuget Package
 
-This project builds a Expat Nuget package with static Expat
+This project builds an Expat Nuget package with static Expat
 libraries and header files  for the `x64` platform, built
 with Visual C++ 2022, against Debug/Release MT/DLL MSVC CRT.
 
@@ -54,7 +54,7 @@ or via a GitHub workflow. In each case, following steps are taken.
     collected in staging directories under `nuget/build/native/lib`.
 
   * `nuget.exe` is used to package staged files with the first
-    three version components used as a Expat version and the last
+    three version components used as an Expat version and the last
     version component used as a package revision. See _Package
     Version_ section for more details.
 
