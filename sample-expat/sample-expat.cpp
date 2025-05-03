@@ -123,7 +123,7 @@ int main(void)
    // This sample XML contains a Katakana character in the abc.b
    // attribute value.
    //
-   constexpr XML_Char xml[] = u8R"~~(
+   constexpr char8_t xml_u8[] = u8R"~~(
       <abc a="1" b=")~~" u8"\u30a1" u8R"~~(">
          abc text
          <!-- XML comment -->
@@ -137,7 +137,8 @@ int main(void)
       </abc>
    )~~";
 
-   const XML_Char* cp = xml;
+   const XML_Char *xml = reinterpret_cast<const XML_Char*>(xml_u8);
+   const XML_Char *cp = xml;
 
    // XML parsing context to pass into callbacks (the default encoding is UTF-8)
    xml_parse_ctx_t parse_ctx = { 0, XML_ParserCreate(nullptr) };
@@ -164,7 +165,7 @@ int main(void)
       }
 
       // fill up the buffer or copy whatever we have left from the input string
-      const size_t len = std::min<size_t>(sizeof(xml) - sizeof(XML_Char) - (cp - xml), BUFSIZE);
+      const size_t len = std::min<size_t>(sizeof(xml_u8) - sizeof(XML_Char) - (cp - xml), BUFSIZE);
 
       // we are done if it's the last chunk (may be zero)
       done = len < BUFSIZE;
