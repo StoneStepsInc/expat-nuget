@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>StoneSteps.Expat.VS2022.Static</id>
-    <version>2.6.3</version>
+    <version>2.7.1</version>
     <authors>Expat authors</authors>
     <owners>Stone Steps (package)</owners>
     <license type="file">licenses\COPYING</license>
@@ -20,7 +20,7 @@ Package Notes:
 
 See Expat release notes for details:
 
-https://github.com/libexpat/libexpat/releases/tag/R_2_6_3
+https://github.com/libexpat/libexpat/releases/tag/R_2_7_1
     </releaseNotes>
     <copyright>Expat authors</copyright>
     <tags>Expat,XML,parser,native,library</tags>

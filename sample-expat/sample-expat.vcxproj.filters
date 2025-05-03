@@ -3,4 +3,15 @@
   <ItemGroup>
     <ClCompile Include="sample-expat.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{f941cf80-f62e-45c6-935c-b26dabd512a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\Debug">
+      <UniqueIdentifier>{4547ec6b-e495-486c-b0e8-7887addb43ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\Release">
+      <UniqueIdentifier>{efd852be-4cbe-439a-8dfb-f7a2c0d2ba8f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
 </Project>
