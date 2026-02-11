@@ -8,7 +8,7 @@
 # to restart build numbers from `1`. This is necessary because GitHub
 # maintains build numbers per workflow file name.
 #
-name: Expat v2.7.1-1
+name: Expat v2.7.4-1
 
 #
 # When `publish-package` is set to `yes`, the workflow will build
@@ -55,9 +55,9 @@ env:
   # GitHub won't allow referencing `env` within this section, so we
   # need to spell out package version a couple more times.
   #
-  EXPAT_FNAME: expat-2.7.1
-  EXPAT_RNAME: R_2_7_1
-  EXPAT_SHA256: 0cce2e6e69b327fc607b8ff264f4b66bdf71ead55a87ffd5f3143f535f15cfa2
+  EXPAT_FNAME: expat-2.7.4
+  EXPAT_RNAME: R_2_7_4
+  EXPAT_SHA256: 461ecc8aa98ab1a68c2db788175665d1a4db640dc05bf0e289b6ea17122144ec
 
   # for VS Community Edition, replace `Enterprise` with `Community` in the path
   VCVARSALL: 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall'

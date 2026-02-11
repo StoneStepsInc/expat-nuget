@@ -121,10 +121,11 @@ int main(void)
    // both.
    // 
    // This sample XML contains a Katakana character in the abc.b
-   // attribute value.
+   // attribute value (3 bytes) and the world emoji in the abc.c
+   // attribute (4 bytes).
    //
    constexpr char8_t xml_u8[] = u8R"~~(
-      <abc a="1" b=")~~" u8"\u30a1" u8R"~~(">
+      <abc a="1" b=")~~" u8"\u30a1" u8"\" c=\"" u8"\U0001F30E" u8R"~~(">
          abc text
          <!-- XML comment -->
          <def e="z" f="3">

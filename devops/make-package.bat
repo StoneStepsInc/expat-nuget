@@ -7,16 +7,16 @@ if "%~1" == "" (
   goto :EOF
 )
 
-set PKG_VER=2.7.1
+set PKG_VER=2.7.4
 set PKG_REV=%~1
 
 set EXPAT_FNAME=expat-%PKG_VER%
-set EXPAT_RNAME=R_2_7_1
-set EXPAT_SHA256=0cce2e6e69b327fc607b8ff264f4b66bdf71ead55a87ffd5f3143f535f15cfa2
+set EXPAT_RNAME=R_2_7_4
+set EXPAT_SHA256=461ecc8aa98ab1a68c2db788175665d1a4db640dc05bf0e289b6ea17122144ec
 
-set PATCH=c:\Program Files\Git\usr\bin\patch.exe
-set SEVENZIP_EXE=c:\Program Files\7-Zip\7z.exe
-set VCVARSALL=C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall
+set PATCH=%PROGRAMFILES%\Git\usr\bin\patch.exe
+set SEVENZIP_EXE=%PROGRAMFILES%\7-Zip\7z.exe
+set VCVARSALL=%PROGRAMFILES%\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall
 
 if NOT EXIST %EXPAT_FNAME%.tar.gz (
   curl --location --output %EXPAT_FNAME%.tar.gz https://github.com/libexpat/libexpat/releases/download/%EXPAT_RNAME%/%EXPAT_FNAME%.tar.gz
