@@ -118,11 +118,15 @@ int main(void)
    // this Expat Nuget package. Projects will compile, but will fail
    // to process wide-character XML because Expat can be compiled
    // either for narrow characters or for wide characters, but not
-   // both.
+   // both (defined via EXPAT_CHAR_TYPE).
    // 
    // This sample XML contains a Katakana character in the abc.b
    // attribute value (3 bytes) and the world emoji in the abc.c
-   // attribute (4 bytes).
+   // attribute (4 bytes). Use these commands to see characters
+   // in the output (typical default code page is Win-1252, etc).
+   // 
+   // Command Prompt : chcp 65001
+   // PowerShell     : [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
    //
    constexpr char8_t xml_u8[] = u8R"~~(
       <abc a="1" b=")~~" u8"\u30a1" u8"\" c=\"" u8"\U0001F30E" u8R"~~(">
