@@ -40,14 +40,20 @@ cmake -S . -B build -A x64 ^
     -DEXPAT_BUILD_TESTS=OFF ^
     -DEXPAT_BUILD_TOOLS=OFF ^
     -DEXPAT_SHARED_LIBS=OFF ^
-    -DEXPAT_ENABLE_INSTALL=OFF ^
+    -DEXPAT_ENABLE_INSTALL=ON ^
     -DEXPAT_BUILD_EXAMPLES=OFF
 
 rem
 rem Build debug and release configurations
 rem
 cmake --build build --config Debug
-cmake --build build --config Release
+cmake --build build --config RelWithDebInfo
+
+rem
+rem Install debug and release configurations into a local folder
+rem
+cmake --install build --config Debug --prefix install/Debug
+cmake --install build --config RelWithDebInfo --prefix install/RelWithDebInfo
 
 rem
 rem Collect all package files in the staging area
@@ -57,20 +63,19 @@ mkdir ..\nuget\licenses
 copy COPYING ..\nuget\licenses\
 
 rem
-rem Header files
+rem Header files (debug and release configurations have the same files)
 rem
 mkdir ..\nuget\build\native\include
-copy build\expat_config.h ..\nuget\build\native\include\
-xcopy /Y /S lib\*.h ..\nuget\build\native\include\
+xcopy /Y /S install\RelWithDebInfo\include\*.h ..\nuget\build\native\include\
 
-rem rename debug library so we don't have to use conditionals in msbuild property files (PDB is referenced in the library)
+rem rename debug library so we don't have to use conditionals in msbuild property files (PDB is referenced in the library and must keep the name)
 mkdir ..\nuget\build\native\lib\x64\Debug
-copy /Y build\Debug\libexpatdMD.lib ..\nuget\build\native\lib\x64\Debug\libexpatMD.lib
+copy /Y install\Debug\lib\libexpatdMD.lib ..\nuget\build\native\lib\x64\Debug\libexpatMD.lib
 copy /Y build\Debug\libexpatdMD.pdb ..\nuget\build\native\lib\x64\Debug\
 
-rem unfortunately, no PDB for the release build, which \help in debugging
 mkdir ..\nuget\build\native\lib\x64\Release
-copy /Y build\Release\libexpatMD.lib ..\nuget\build\native\lib\x64\Release\
+copy /Y install\RelWithDebInfo\lib\libexpatMD.lib ..\nuget\build\native\lib\x64\Release\
+copy /Y build\RelWithDebInfo\libexpatMD.pdb ..\nuget\build\native\lib\x64\Release\
 
 cd ..
 

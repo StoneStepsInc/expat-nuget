@@ -96,7 +96,7 @@ jobs:
             -DEXPAT_BUILD_TESTS=OFF ^
             -DEXPAT_BUILD_TOOLS=OFF ^
             -DEXPAT_SHARED_LIBS=OFF ^
-            -DEXPAT_ENABLE_INSTALL=OFF ^
+            -DEXPAT_ENABLE_INSTALL=ON ^
             -DEXPAT_BUILD_EXAMPLES=OFF
 
     - name: Build Expat
@@ -104,8 +104,16 @@ jobs:
       run: |
         call "${{ env.VCVARSALL }}" x64
         cmake --build build --config Debug
-        cmake --build build --config Release
+        cmake --build build --config RelWithDebInfo
         
+    - name: Install Expat
+      working-directory: ${{ env.EXPAT_FNAME }}
+      run: |
+        call "${{ env.VCVARSALL }}" x64
+
+        cmake --install build --config Debug --prefix install/Debug
+        cmake --install build --config RelWithDebInfo --prefix install/RelWithDebInfo
+
     - name: Collect artifacts
       working-directory: ${{ env.EXPAT_FNAME }}
       run: |
@@ -113,15 +121,15 @@ jobs:
         copy COPYING ..\nuget\licenses\
 
         mkdir ..\nuget\build\native\include
-        copy build\expat_config.h ..\nuget\build\native\include\
-        xcopy /Y /S lib\*.h ..\nuget\build\native\include\
+        xcopy /Y /S install\RelWithDebInfo\include\*.h ..\nuget\build\native\include\
 
         mkdir ..\nuget\build\native\lib\x64\Debug
-        copy /Y build\Debug\libexpatdMD.lib ..\nuget\build\native\lib\x64\Debug\libexpatMD.lib
+        copy /Y install\Debug\lib\libexpatdMD.lib ..\nuget\build\native\lib\x64\Debug\libexpatMD.lib
         copy /Y build\Debug\libexpatdMD.pdb ..\nuget\build\native\lib\x64\Debug\
 
         mkdir ..\nuget\build\native\lib\x64\Release
-        copy /Y build\Release\libexpatMD.lib ..\nuget\build\native\lib\x64\Release\
+        copy /Y install\RelWithDebInfo\lib\libexpatMD.lib ..\nuget\build\native\lib\x64\Release\
+        copy /Y build\RelWithDebInfo\libexpatMD.pdb ..\nuget\build\native\lib\x64\Release\
 
       # this is an unconventional use of the pre-release version - see README.md
     - name: Make CI Nuget package
