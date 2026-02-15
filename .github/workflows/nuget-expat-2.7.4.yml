@@ -47,7 +47,7 @@ on:
 # adding or removing files, changing any text in README files, etc.
 #
 env:
-  PKG_VER: 2.7.1
+  PKG_VER: 2.7.4
   PKG_REV: 1
   BUILD_NUMBER: ${{ github.run_number }}
 
