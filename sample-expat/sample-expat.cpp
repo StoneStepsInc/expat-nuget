@@ -120,16 +120,18 @@ int main(void)
    // either for narrow characters or for wide characters, but not
    // both (defined via EXPAT_CHAR_TYPE).
    // 
-   // This sample XML contains a Katakana character in the abc.b
-   // attribute value (3 bytes) and the world emoji in the abc.c
-   // attribute (4 bytes). Use these commands to see characters
-   // in the output (typical default code page is Win-1252, etc).
+   // This sample XML contains a pound sign character in the abc.b
+   // attribute (2 bytes), a Katakana character in the abc.c attribute
+   // (3 bytes) and the world emoji in the abc.d attribute (4 bytes).
+   // 
+   // Use these commands to see characters in the output (typical
+   // default code page is Win-1252, etc).
    // 
    // Command Prompt : chcp 65001
    // PowerShell     : [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
    //
    constexpr char8_t xml_u8[] = u8R"~~(
-      <abc a="1" b=")~~" u8"\u30a1" u8"\" c=\"" u8"\U0001F30E" u8R"~~(">
+      <abc a="1" b=")~~" u8"\u00a3" u8"\" c=\"" u8"\u30a1" u8"\" d=\"" u8"\U0001F30E" u8R"~~(">
          abc text
          <!-- XML comment -->
          <def e="z" f="3">
