@@ -76,7 +76,7 @@ jobs:
     
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Download Expat
       run: curl --location --output ${{ env.EXPAT_FNAME }}.tar.gz https://github.com/libexpat/libexpat/releases/download/${{ env.EXPAT_RNAME }}/${{ env.EXPAT_FNAME }}.tar.gz
@@ -139,7 +139,7 @@ jobs:
 
     - name: Upload CI Nuget package
       if: ${{ github.event.inputs.publish-package != 'yes' }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: Expat CI Nuget package
         path: StoneSteps.Expat.VS2022.Static.${{ env.PKG_VER }}.${{ env.PKG_REV }}-ci.${{ env.BUILD_NUMBER }}.nupkg
