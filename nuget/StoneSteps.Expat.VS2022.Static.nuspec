@@ -24,9 +24,11 @@ https://github.com/libexpat/libexpat/releases/tag/R_2_8_2
     </releaseNotes>
     <copyright>Expat authors</copyright>
     <tags>Expat,XML,parser,native,library</tags>
+    <readme>README.md</readme>
   </metadata>
   <files>
    <file src="README.txt" target=""/>
+   <file src="README.md" target=""/>
    <file src="licenses\COPYING" target="licenses\COPYING"/>
    <file src="build\**\*" target="build"/>
   </files>

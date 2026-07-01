@@ -62,6 +62,9 @@ rem
 mkdir ..\nuget\licenses
 copy COPYING ..\nuget\licenses\
 
+rem copy the dummy README file because Nuget cannot figure out how to manage README files
+copy ..\nuget\README.txt ..\nuget\README.md
+
 rem
 rem Header files (debug and release configurations have the same files)
 rem
