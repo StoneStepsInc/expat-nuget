@@ -8,7 +8,7 @@
 # to restart build numbers from `1`. This is necessary because GitHub
 # maintains build numbers per workflow file name.
 #
-name: Expat v2.8.1-1
+name: Expat v2.8.2-1
 
 #
 # When `publish-package` is set to `yes`, the workflow will build
